@@ -1,0 +1,20 @@
+.extensionsGrid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.extensionsGrid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 30%;  /* 33% de la largeur du conteneur => 3 éléments par ligne */
+  box-sizing: border-box;  /* Inclut les bordures et les paddings dans la largeur totale */
+
+  &:hover{
+    opacity: 0.9;
+    border: rgba(40,130,103,0.98) 1px solid;
+  }
+}

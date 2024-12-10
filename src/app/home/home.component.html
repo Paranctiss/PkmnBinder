@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="container">
+
+<img ngSrc="/logo.png" alt="website logo" width="595" height="420"/>
+
+  <ng-template #notLogged>
+    <div class="btnGroup">
+      <app-button-component (click)="isLogged = true" [color]="'#FFD0F1'" [labelColor]="'#CB80CC'" [label]="'Connexion'"></app-button-component>
+      <app-button-component [color]="'#CB80CC'" [labelColor]="'#FFD0F1'" [label]="'Inscription'"></app-button-component>
+      <app-button-component [color]="'#BA567E'" [labelColor]="'#FFD0F1'" [label]="'Démo'"></app-button-component>
+    </div>
+
+  </ng-template>
+
+  <ng-container *ngIf="isLogged; else notLogged">
+
+    <div class="btnGroup">
+      <app-button-component (click)="navigateToCatalog()" [color]="'#FFD0F1'" [labelColor]="'#CB80CC'" [label]="'Ajouter cartes'"></app-button-component>
+      <app-button-component (click)="navigateToCollection()" [color]="'#CB80CC'" [labelColor]="'#FFD0F1'" [label]="'Voir collection'"></app-button-component>
+    </div>
+
+  </ng-container>
+</div>
