@@ -1,0 +1,38 @@
+<div *ngIf="pokemonService.isLoading()">Chargement en cours...</div>
+<div *ngIf="pokemonService.error()" class="error">{{ pokemonService.error() }}</div>
+<button>< Extensions</button>
+<div class="container">
+  <div class="sideInfos">
+    <img *ngIf="extension()?.logo !== 'null.webp'" [src]="extension()?.logo" style="width: 400px">
+    <p *ngIf="extension()?.logo === 'null.webp'">{{extension()?.name }}</p>
+    <p>{{selectedPokemonIds.size}}/{{extension()?.count }} cartes possédées</p>
+
+    <app-button-component style="transform: scale(0.6)" [color]="'#FFD0F1'" [labelColor]="'#CB80CC'" [label]="'Enregistrer'"></app-button-component>
+    <br>
+    <div class="search-container">
+      <label for="search-input">Recherche</label>
+      <input  [value]="searchInput()"
+              (input)="onInput($event)"   id="search-input" type="text" placeholder="Pikachu" />
+    </div>
+
+  </div>
+
+  <div class="cardsGrid">
+    <div class="card" *ngFor="let pokemon of filteredPokemon()">
+      <label for="check-{{pokemon.id}}" class="card-label">
+        <div class="cardBorder">
+          <div class="checkbox-container">
+            <input
+              type="checkbox"
+              id="check-{{pokemon.id}}"
+              [checked]="isSelected(pokemon.id)"
+              (change)="toggleSelection(pokemon.id)"
+            />
+            <span class="checkbox"></span>
+          </div>
+          <img [src]="pokemon.image + '/low.webp'" style="width: 180px" draggable="false" />
+        </div>
+      </label>
+    </div>
+  </div>
+</div>

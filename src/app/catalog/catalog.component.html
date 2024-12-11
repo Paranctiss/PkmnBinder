@@ -10,11 +10,9 @@
     </option>
   </select>
 
-  <h1>SELECTED SERIE {{selectedSerie()?.name}}</h1>
-
   <div class="extensionsGrid">
     <ng-content *ngFor="let extension of catalogService.extensions()">
-      <div *ngIf="extension.idSerie === selectedSerie()?.id || selectedSerie()?.id === 'all'">
+      <div *ngIf="extension.idSerie === selectedSerie()?.id || selectedSerie()?.id === 'all'" (click)="goToExtension(extension.id)">
         <img *ngIf="extension.logo !== 'null.webp'" style="width: 280px; height: 180px" [src]="extension.logo">
         <img *ngIf="extension.logo === 'null.webp'" style="width: 280px; height: 180px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg/2560px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png">
         <p> {{ extension.name }} </p>

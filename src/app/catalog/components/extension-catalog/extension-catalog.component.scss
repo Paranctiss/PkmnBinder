@@ -1,0 +1,109 @@
+.container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-top: 5%;
+}
+
+.sideInfos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: Arial, sans-serif;
+}
+
+label {
+  font-size: 14px;
+  color: #000; /* Couleur noire pour le texte */
+}
+
+input[type="text"] {
+  width: 200px; /* Ajustez selon vos besoins */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input[type="text"]:focus {
+  border-color: #888; /* Changer de couleur au focus */
+}
+
+
+.cardsGrid {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card {
+  flex: 0 0 20%;
+  position: relative;
+}
+
+.card-label {
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.cardBorder {
+  background: #d9d9d9;
+  width: 200px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.checkbox-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+input[type="checkbox"] {
+  display: none; /* Cache l'input brut */
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="checkbox"]:checked + .checkbox {
+  background: #000;
+  color: white;
+}
+
+input[type="checkbox"]:checked + .checkbox::before {
+  content: "✔";
+  font-size: 14px;
+  color: white;
+}
+
+img {
+  user-select: none;
+}

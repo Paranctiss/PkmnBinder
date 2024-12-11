@@ -26,7 +26,6 @@ export class CatalogService{
     this.http.get<ExtensionModel[]>(this.apiUrl+"extensions").subscribe({
       next: (data) => {
         this.extensions.set([...data].reverse());
-        console.log(data)
         this.isLoading.set(false);
       },
       error: (err) => {

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import {CatalogComponent} from './catalog/catalog.component';
 
 export const routes: Routes = [
   {
@@ -11,6 +12,19 @@ export const routes: Routes = [
   },
   {
     path: 'catalog',
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./catalog/catalog.component').then(m => m.CatalogComponent)
+      },
+      {
+        path: 'extension/:id',
+        loadComponent: () => import('./catalog/components/extension-catalog/extension-catalog.component').then(m => m.ExtensionCatalogComponent)
+      }
+    ]
+  },
+  {
+    path: 'catalog/extension',
     loadComponent: () => import('./catalog/catalog.component').then(m => m.CatalogComponent)
   },
   {
